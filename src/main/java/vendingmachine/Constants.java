@@ -22,4 +22,7 @@ public final class Constants {
 
 	public static final String ERROR_NOT_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 숫자만 입력할 수 있습니다.";
 	public static final String ERROR_NOT_POSITIVE_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 0보다 큰 숫자만 입력할 수 있습니다.";
+
+	public static final String ERROR_NO_NAME_IN_MENU_MESSAGE = "[ERROR] 주문하신 상품은 메뉴에 없습니다.";
+
 }

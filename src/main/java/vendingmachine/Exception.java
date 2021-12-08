@@ -151,4 +151,26 @@ public class Exception {
 		}
 	}
 
+	public boolean checkCanTakeThisOrder(String order, VendingMachine vendingMachine) {
+		if (!isThereThisMenu(order, vendingMachine)) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public boolean isThereThisMenu(String order, VendingMachine vendingMachine) {
+		try {
+
+			if (!vendingMachine.menuName.containsKey(order)) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_NO_NAME_IN_MENU_MESSAGE.toString());
+			return false;
+		}
+	}
+
 }
