@@ -7,18 +7,20 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class VendingMachine {
 	public List<Integer> numberOfCoins;
-	public Menu menu;
+	public List<Product> menu;
+	public int changes;
 
 	VendingMachine() {
 		numberOfCoins = new ArrayList<Integer>();
-		menu = new Menu();
+		menu = new ArrayList<Product>();
+		changes = 0;
 	}
 
 	public void init() {
 		System.out.println(Constants.PREPARING_COIN_MESSAGE.toString());
 		prepareChanges();
 		System.out.println(Constants.INPUT_MENU_MESSAGE.toString());
-		menu.makeMenu();
+		makeMenu();
 	}
 
 	public void prepareChanges() {
@@ -31,6 +33,20 @@ public class VendingMachine {
 		printNumberOfCoins();
 	}
 
+	public void makeMenu() {
+		String productListStr = Console.readLine();
+		String[] productList = productListStr.split(";");
+
+		for (int i = 0; i < productList.length; i++) {
+			String productStr = productList[i].substring(1, productList[i].length() - 1);
+			String[] productInfo = productStr.split(",");
+			Product product = new Product(productInfo[0], Integer.parseInt(productInfo[1]),
+				Integer.parseInt(productInfo[2]));
+			menu.add(product);
+		}
+
+	}
+
 	public void printNumberOfCoins() {
 		System.out.println(Constants.PREPARED_NUMBER_OF_COINS_MESSAGE.toString());
 
@@ -40,4 +56,18 @@ public class VendingMachine {
 
 	}
 
+	public void insertMoney(int money) {
+		changes = money;
+	}
+
+	public boolean receiveOrder(String userOrder) {
+
+		for (Product product : menu) {
+
+			if (product.name == userOrder) {
+
+			}
+		}
+	}
+	
 }
