@@ -156,6 +156,10 @@ public class Exception {
 			return false;
 		}
 
+		if (!isThereAnyRemain(order, vendingMachine)) {
+			return false;
+		}
+
 		return true;
 	}
 
@@ -173,4 +177,17 @@ public class Exception {
 		}
 	}
 
+	public boolean isThereAnyRemain(String order, VendingMachine vendingMachine) {
+		try {
+
+			if (vendingMachine.menu.get(vendingMachine.menuName.get(order)).quantity == 0) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_NO_QUANTITY_MESSAGE.toString());
+			return false;
+		}
+	}
 }
