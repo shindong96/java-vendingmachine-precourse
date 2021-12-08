@@ -16,5 +16,7 @@ public final class Constants {
 	public static final String ERROR_NOT_DIVIDED_TEN_NUMBER_MESSAGE = "[ERROR] 1 단위의 금액은 투입할 수 없습니다.";
 
 	public static final String ERROR_ARRAY_SIZE_MESSAGE = "[ERROR] 상품 정보가 잘못되었습니다.";
+	public static final String ERROR_SPACE_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 공백이 있으면 안됩니다.";
+	public static final String ERROR_TAB_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 탭이 있으면 안됩니다.";
 
 }

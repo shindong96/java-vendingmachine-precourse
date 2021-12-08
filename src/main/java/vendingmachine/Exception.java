@@ -1,5 +1,8 @@
 package vendingmachine;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Exception {
 	public boolean checkNumberException(String numberStr) {
 		try {
@@ -45,8 +48,13 @@ public class Exception {
 	}
 
 	public boolean checkMenuException(String[] productInfo) {
+		Set<String> nameSet = new HashSet<String>();
 
 		if (!checkArraySize(productInfo)) {
+			return false;
+		}
+
+		if (!checkSpaceInProductName(productInfo[0])) {
 			return false;
 		}
 
@@ -65,4 +73,35 @@ public class Exception {
 			return false;
 		}
 	}
+
+	public boolean checkSpaceInProductName(String name) {
+		String[] tmp = name.split(" ", -1);
+		try {
+
+			if (tmp.length != 1) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_SPACE_IN_PRODUCT_NAME_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkTabInProductName(String name) {
+		String[] tmp = name.split("\t", -1);
+		try {
+
+			if (tmp.length != 1) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_TAB_IN_PRODUCT_NAME_MESSAGE.toString());
+			return false;
+		}
+	}
+
 }
