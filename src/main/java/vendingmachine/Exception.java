@@ -5,22 +5,22 @@ import java.util.HashSet;
 public class Exception {
 	public HashSet<String> nameSet = new HashSet<String>();
 
-	public boolean checkMoneyException(String numberStr) {
+	public boolean checkMoneyException(String moneyStr) {
 		try {
-			int num = Integer.parseInt(numberStr);
+			int num = Integer.parseInt(moneyStr);
 
-			if (!checkPositiveNumberException(num) || !checkNumberIsDividedTen(num)) {
+			if (!checkPositiveNumberMoneyException(num) || !checkNumberIsDividedTen(num)) {
 				return false;
 			}
 
 			return true;
 		} catch (IllegalArgumentException e) {
-			System.out.println(Constants.ERROR_NOT_NUMBER_MESSAGE.toString());
+			System.out.println(Constants.ERROR_NOT_NUMBER_MONEY__MESSAGE.toString());
 			return false;
 		}
 	}
 
-	public boolean checkPositiveNumberException(int number) {
+	public boolean checkPositiveNumberMoneyException(int number) {
 		try {
 
 			if (number <= 0) {
@@ -29,7 +29,7 @@ public class Exception {
 
 			return true;
 		} catch (IllegalArgumentException e) {
-			System.out.println(Constants.ERROR_NOT_POSITIVE_NUMBER_MESSAGE.toString());
+			System.out.println(Constants.ERROR_NOT_POSITIVE_NUMBER_MONEY_MESSAGE.toString());
 			return false;
 		}
 	}
@@ -56,7 +56,7 @@ public class Exception {
 			return false;
 		}
 
-		if (!checkMoneyException(productInfo[1]) || !checkNumberException(productInfo[2])) {
+		if (!checkMoneyException(productInfo[1]) || !checkQuantityException(productInfo[2])) {
 			return false;
 		}
 
@@ -118,6 +118,35 @@ public class Exception {
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.out.println(Constants.ERROR_REDUPLICATION_NAME_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkQuantityException(String quantityStr) {
+		try {
+			int num = Integer.parseInt(quantityStr);
+
+			if (!checkPositiveNumberQuantityException(num)) {
+				return false;
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_NOT_NUMBER_QUANTITY_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkPositiveNumberQuantityException(int number) {
+		try {
+
+			if (number <= 0) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_NOT_POSITIVE_NUMBER_QUANTITY_MESSAGE.toString());
 			return false;
 		}
 	}

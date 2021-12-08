@@ -11,8 +11,8 @@ public final class Constants {
 
 	public static final String PRINT_CHANGES = "잔돈";
 
-	public static final String ERROR_NOT_NUMBER_MESSAGE = "[ERROR] 숫자만 입력할 수 있습니다.";
-	public static final String ERROR_NOT_POSITIVE_NUMBER_MESSAGE = "[ERROR] 0보다 큰 숫자만 입력할 수 있습니다.";
+	public static final String ERROR_NOT_NUMBER_MONEY__MESSAGE = "[ERROR] 금액은 숫자만 입력할 수 있습니다.";
+	public static final String ERROR_NOT_POSITIVE_NUMBER_MONEY_MESSAGE = "[ERROR] 금액은 0보다 큰 숫자만 입력할 수 있습니다.";
 	public static final String ERROR_NOT_DIVIDED_TEN_NUMBER_MESSAGE = "[ERROR] 1 단위의 금액은 투입할 수 없습니다.";
 
 	public static final String ERROR_ARRAY_SIZE_MESSAGE = "[ERROR] 상품 정보가 잘못되었습니다.";
@@ -20,4 +20,6 @@ public final class Constants {
 	public static final String ERROR_TAB_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 탭이 있으면 안됩니다.";
 	public static final String ERROR_REDUPLICATION_NAME_MESSAGE = "[ERROR] 상품 이름이 중복입니다.";
 
+	public static final String ERROR_NOT_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 숫자만 입력할 수 있습니다.";
+	public static final String ERROR_NOT_POSITIVE_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 0보다 큰 숫자만 입력할 수 있습니다.";
 }
