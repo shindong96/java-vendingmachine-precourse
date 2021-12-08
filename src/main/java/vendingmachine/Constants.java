@@ -18,5 +18,6 @@ public final class Constants {
 	public static final String ERROR_ARRAY_SIZE_MESSAGE = "[ERROR] 상품 정보가 잘못되었습니다.";
 	public static final String ERROR_SPACE_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 공백이 있으면 안됩니다.";
 	public static final String ERROR_TAB_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 탭이 있으면 안됩니다.";
+	public static final String ERROR_REDUPLICATION_NAME_MESSAGE = "[ERROR] 상품 이름이 중복입니다.";
 
 }

@@ -54,7 +54,8 @@ public class Exception {
 			return false;
 		}
 
-		if (!checkSpaceInProductName(productInfo[0]) || !checkTabInProductName(productInfo[0])) {
+		if (!checkSpaceInProductName(productInfo[0]) || !checkTabInProductName(productInfo[0])
+			|| !checkNameReduplication(productInfo[0], nameSet)) {
 			return false;
 		}
 
@@ -101,6 +102,21 @@ public class Exception {
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.out.println(Constants.ERROR_TAB_IN_PRODUCT_NAME_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkNameReduplication(String name, Set<String> nameSet) {
+		try {
+
+			if (nameSet.contains(name)) {
+				throw new IllegalArgumentException();
+			}
+
+			nameSet.add(name);
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_REDUPLICATION_NAME_MESSAGE.toString());
 			return false;
 		}
 	}
