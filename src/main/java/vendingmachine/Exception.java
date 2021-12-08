@@ -56,7 +56,8 @@ public class Exception {
 			return false;
 		}
 
-		if (!checkMoneyException(productInfo[1]) || !checkQuantityException(productInfo[2])) {
+		if (!checkMoneyException(productInfo[1]) || !checkPriceLowerLimit(productInfo[1]) || !checkQuantityException(
+			productInfo[2])) {
 			return false;
 		}
 
@@ -118,6 +119,21 @@ public class Exception {
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.out.println(Constants.ERROR_REDUPLICATION_NAME_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkPriceLowerLimit(String priceStr) {
+		try {
+			int price = Integer.parseInt(priceStr);
+
+			if (price < 100) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_UNDER_THAN_PRICE_LIMIT_MESSAGE.toString());
 			return false;
 		}
 	}

@@ -19,6 +19,7 @@ public final class Constants {
 	public static final String ERROR_SPACE_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 공백이 있으면 안됩니다.";
 	public static final String ERROR_TAB_IN_PRODUCT_NAME_MESSAGE = "[ERROR] 상품 이름에 탭이 있으면 안됩니다.";
 	public static final String ERROR_REDUPLICATION_NAME_MESSAGE = "[ERROR] 상품 이름이 중복입니다.";
+	public static final String ERROR_UNDER_THAN_PRICE_LIMIT_MESSAGE = "[ERROR] 상품의 가격은 100원을 넘어야합니다.";
 
 	public static final String ERROR_NOT_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 숫자만 입력할 수 있습니다.";
 	public static final String ERROR_NOT_POSITIVE_NUMBER_QUANTITY_MESSAGE = "[ERROR] 수량은 0보다 큰 숫자만 입력할 수 있습니다.";
