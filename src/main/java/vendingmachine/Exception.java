@@ -46,5 +46,23 @@ public class Exception {
 
 	public boolean checkMenuException(String[] productInfo) {
 
+		if (!checkArraySize(productInfo)) {
+			return false;
+		}
+
+	}
+
+	public boolean checkArraySize(String[] productInfo) {
+		try {
+
+			if (productInfo.length != 3) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_ARRAY_SIZE_MESSAGE.toString());
+			return false;
+		}
 	}
 }

@@ -61,15 +61,13 @@ public class VendingMachine {
 
 	}
 
-	public void
-
 	boolean makeMenu() {
 		String productListStr = Console.readLine();
-		String[] productList = productListStr.split(";");
+		String[] productList = productListStr.split(";", -1);
 
 		for (int i = 0; i < productList.length; i++) {
 			String productStr = productList[i].substring(1, productList[i].length() - 1);
-			String[] productInfo = productStr.split(",");
+			String[] productInfo = productStr.split(",", -1);
 
 			if (exception.checkMenuException(productInfo)) {
 
