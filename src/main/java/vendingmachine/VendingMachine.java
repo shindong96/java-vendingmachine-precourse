@@ -91,4 +91,38 @@ public class VendingMachine {
 		return true;
 	}
 
+	public void printResult() {
+		System.out.println(Constants.PRINT_CHANGES);
+
+		for (Coin coin : Coin.values()) {
+
+			if (changes >= coin.getAmount()) {
+				countQuantityOfCoin(coin);
+
+			}
+		}
+
+	}
+
+	public void countQuantityOfCoin(Coin coin) {
+		int quantity = changes / coin.getAmount();
+
+		if (quantity > numberOfCoins.get(coin.ordinal())) {
+			quantity = numberOfCoins.get(coin.ordinal());
+		}
+
+		printChanges(coin.getAmount(), quantity);
+
+		changes -= coin.getAmount() * quantity;
+	}
+
+	public void printChanges(int amount, int quantity) {
+
+		if (quantity == 0) {
+			return;
+		}
+		
+		System.out.println(amount + " - " + quantity + "개");
+	}
+
 }

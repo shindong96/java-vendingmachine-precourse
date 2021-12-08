@@ -6,6 +6,16 @@ public class Application {
 		User user = new User();
 
 		vendingMachine.init();
+		user.insertMoney(vendingMachine);
+
+		Order order = new Order(vendingMachine, user);
+		boolean end = false;
+
+		while (end) {
+			end = order.chooseProduct();
+		}
+
+		vendingMachine.init();
 		// TODO: 프로그램 구현
 	}
 }

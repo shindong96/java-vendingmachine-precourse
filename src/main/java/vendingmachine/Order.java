@@ -9,7 +9,7 @@ public class Order {
 		this.user = user;
 	}
 
-	public void chooseProduct() {
+	public boolean chooseProduct() {
 		System.out.println(Constants.PRINT_USER_MONEY.toString() + " : " + vendingMachine.changes);
 		String userOrder = user.order();
 
@@ -17,11 +17,13 @@ public class Order {
 
 			if (vendingMachine.endOrder()) {
 				System.out.println(Constants.PRINT_USER_MONEY.toString() + " : " + vendingMachine.changes);
-				vendingMachine.printChanges();
+				vendingMachine.printResult();
+				return true;
 			}
 
 		}
 
+		return false;
 	}
-	
+
 }
