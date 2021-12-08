@@ -28,10 +28,10 @@ public class VendingMachine {
 	}
 
 	public void prepareChanges() {
-		int changes = Integer.parseInt(Console.readLine());
+		int changesCoin = Integer.parseInt(Console.readLine());
 
 		for (Coin coin : Coin.values()) {
-			changes = coin.prepareChanges(changes, numberOfCoins);
+			changesCoin = coin.prepareChanges(changesCoin, numberOfCoins);
 		}
 
 		printNumberOfCoins();
@@ -121,7 +121,7 @@ public class VendingMachine {
 		if (quantity == 0) {
 			return;
 		}
-		
+
 		System.out.println(amount + " - " + quantity + "개");
 	}
 

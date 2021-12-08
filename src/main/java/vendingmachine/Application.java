@@ -11,11 +11,9 @@ public class Application {
 		Order order = new Order(vendingMachine, user);
 		boolean end = false;
 
-		while (end) {
+		while (!end) {
 			end = order.chooseProduct();
 		}
-
-		vendingMachine.init();
 		// TODO: 프로그램 구현
 	}
 }
