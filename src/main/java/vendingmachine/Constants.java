@@ -13,5 +13,6 @@ public final class Constants {
 
 	public static final String ERROR_NOT_NUMBER_MESSAGE = "[ERROR] 숫자만 입력할 수 있습니다.";
 	public static final String ERROR_NOT_POSITIVE_NUMBER_MESSAGE = "[ERROR] 0보다 큰 숫자만 입력할 수 있습니다.";
+	public static final String ERROR_NOT_DIVIDED_TEN_NUMBER_MESSAGE = "[ERROR] 1 단위의 금액은 투입할 수 없습니다.";
 
 }

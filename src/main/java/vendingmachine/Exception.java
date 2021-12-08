@@ -5,7 +5,7 @@ public class Exception {
 		try {
 			int num = Integer.parseInt(numberStr);
 
-			if (!checkPositiveNumberException(num)) {
+			if (!checkPositiveNumberException(num) || !checkNumberIsDividedTen(num)) {
 				return false;
 			}
 
@@ -26,6 +26,20 @@ public class Exception {
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.out.println(Constants.ERROR_NOT_POSITIVE_NUMBER_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkNumberIsDividedTen(int number) {
+		try {
+
+			if (number % 10 != 0) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_NOT_DIVIDED_TEN_NUMBER_MESSAGE.toString());
 			return false;
 		}
 	}
