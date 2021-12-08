@@ -14,7 +14,7 @@ public class Order {
 	}
 
 	public boolean chooseProduct() {
-		System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney);
+		System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney + "원");
 		String userOrder;
 
 		System.out.println(Constants.ORDER_MENU_NAME.toString());
@@ -23,8 +23,6 @@ public class Order {
 		vendingMachine.receiveOrder(userOrder);
 
 		if (vendingMachine.endOrder()) {
-			System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney);
-			vendingMachine.printResult();
 			return true;
 		}
 
@@ -38,6 +36,7 @@ public class Order {
 			userOrder = Console.readLine();
 
 			if (exception.checkCanTakeThisOrder(userOrder, vendingMachine)) {
+				System.out.println();
 				return userOrder;
 			}
 		}

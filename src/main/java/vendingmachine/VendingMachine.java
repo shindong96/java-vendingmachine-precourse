@@ -28,10 +28,14 @@ public class VendingMachine {
 	public void init() {
 		System.out.println(Constants.PREPARING_COIN_MESSAGE.toString());
 		prepareChanges();
+		System.out.println();
+
 		printNumberOfCoins();
+		System.out.println();
 
 		System.out.println(Constants.INPUT_MENU_MESSAGE.toString());
 		insertMenu();
+		System.out.println();
 	}
 
 	public void prepareChanges() {
@@ -123,10 +127,12 @@ public class VendingMachine {
 
 		}
 
+		printResult();
 		return true;
 	}
 
 	public void printResult() {
+		System.out.println(Constants.PRINT_USER_MONEY.toString() + remainMoney + "원");
 		System.out.println(Constants.PRINT_CHANGES);
 
 		for (Coin coin : Coin.values()) {

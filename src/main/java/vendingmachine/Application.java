@@ -7,12 +7,14 @@ public class Application {
 
 		vendingMachine.init();
 		user.insertMoney(vendingMachine);
-
 		Order order = new Order(vendingMachine, user);
-		boolean end = false;
 
-		while (!end) {
-			end = order.chooseProduct();
+		if (vendingMachine.endOrder()) {
+			return;
+		}
+
+		while (!order.chooseProduct()) {
+			;
 		}
 		// TODO: 프로그램 구현
 	}

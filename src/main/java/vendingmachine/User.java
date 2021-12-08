@@ -7,13 +7,18 @@ public class User {
 
 	public void insertMoney(VendingMachine vendingMachine) {
 		System.out.println(Constants.INSERT_MONEY_MESSAGE.toString());
+
 		while (true) {
 			String moneyStr = Console.readLine();
+
 			if (exception.checkMoneyException(moneyStr)) {
 				vendingMachine.insertMoney(Integer.parseInt(moneyStr));
+				System.out.println();
 				return;
 			}
+
 		}
+
 	}
 
 	public String order() {
