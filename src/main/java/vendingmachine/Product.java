@@ -10,5 +10,5 @@ public class Product {
 		price = productPrice;
 		quantity = productQuantity;
 	}
-	
+
 }

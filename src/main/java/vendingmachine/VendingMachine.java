@@ -1,20 +1,22 @@
 package vendingmachine;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
 
 public class VendingMachine {
 	public List<Integer> numberOfCoins;
-	public Set<Product> menu;
+	public List<Product> menu;
+	public Map<String, Integer> menuName;
 	public int changes;
 
 	VendingMachine() {
 		numberOfCoins = new ArrayList<Integer>();
-		menu = new HashSet<Product>();
+		menu = new ArrayList<Product>();
+		menuName = new HashMap<String, Integer>();
 		changes = 0;
 	}
 
@@ -42,6 +44,7 @@ public class VendingMachine {
 		for (int i = 0; i < productList.length; i++) {
 			String productStr = productList[i].substring(1, productList[i].length() - 1);
 			String[] productInfo = productStr.split(",");
+			menuName.put(productInfo[0], i);
 			menu.add(new Product(productInfo[0], Integer.parseInt(productInfo[1]), Integer.parseInt(productInfo[2])));
 		}
 
