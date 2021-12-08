@@ -16,6 +16,8 @@ public class Order {
 	public boolean chooseProduct() {
 		System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney);
 		String userOrder;
+
+		System.out.println(Constants.ORDER_MENU_NAME.toString());
 		userOrder = repeatOrderUntilReceive();
 
 		vendingMachine.receiveOrder(userOrder);
@@ -34,11 +36,12 @@ public class Order {
 
 		while (true) {
 			userOrder = Console.readLine();
-			
+
 			if (exception.checkCanTakeThisOrder(userOrder, vendingMachine)) {
 				return userOrder;
 			}
 		}
+
 	}
 
 }

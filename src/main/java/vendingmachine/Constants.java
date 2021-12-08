@@ -25,5 +25,6 @@ public final class Constants {
 
 	public static final String ERROR_NO_NAME_IN_MENU_MESSAGE = "[ERROR] 주문하신 상품은 메뉴에 없습니다.";
 	public static final String ERROR_NO_QUANTITY_MESSAGE = "[ERROR] 주문하신 상품은 품절입니다.";
+	public static final String ERROR_CANNOT_BUY_WITH_REMAIN_MESSAGE = "[ERROR] 잔액이 모자랍니다.";
 
 }

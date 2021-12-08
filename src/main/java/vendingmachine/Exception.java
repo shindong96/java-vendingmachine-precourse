@@ -156,7 +156,7 @@ public class Exception {
 			return false;
 		}
 
-		if (!isThereAnyRemain(order, vendingMachine)) {
+		if (!isThereAnyRemain(order, vendingMachine) || !checkCanBuyThisProductWithRemainMoney(order, vendingMachine)) {
 			return false;
 		}
 
@@ -187,6 +187,20 @@ public class Exception {
 			return true;
 		} catch (IllegalArgumentException e) {
 			System.out.println(Constants.ERROR_NO_QUANTITY_MESSAGE.toString());
+			return false;
+		}
+	}
+
+	public boolean checkCanBuyThisProductWithRemainMoney(String order, VendingMachine vendingMachine) {
+		try {
+
+			if (vendingMachine.menu.get(vendingMachine.menuName.get(order)).price > vendingMachine.remainMoney) {
+				throw new IllegalArgumentException();
+			}
+
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(Constants.ERROR_CANNOT_BUY_WITH_REMAIN_MESSAGE.toString());
 			return false;
 		}
 	}
