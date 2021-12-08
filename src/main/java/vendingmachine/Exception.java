@@ -51,12 +51,12 @@ public class Exception {
 	public boolean checkMenuException(String[] productInfo) {
 		nameSet.clear();
 
-		if (!checkArraySize(productInfo)) {
+		if (!checkArraySize(productInfo) || !checkSpaceInProductName(productInfo[0]) || !checkTabInProductName(
+			productInfo[0]) || !checkNameReduplication(productInfo[0], nameSet)) {
 			return false;
 		}
 
-		if (!checkSpaceInProductName(productInfo[0]) || !checkTabInProductName(productInfo[0])
-			|| !checkNameReduplication(productInfo[0], nameSet)) {
+		if (!checkNumberException(productInfo[1]) || !checkNumberException(productInfo[2])) {
 			return false;
 		}
 
