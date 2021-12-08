@@ -7,9 +7,18 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class VendingMachine {
 	public List<Integer> numberOfCoins;
+	public Menu menu;
 
 	VendingMachine() {
 		numberOfCoins = new ArrayList<Integer>();
+		menu = new Menu();
+	}
+
+	public void init() {
+		System.out.println(Constants.PREPARING_COIN_MESSAGE.toString());
+		prepareChanges();
+		System.out.println(Constants.INPUT_MENU_MESSAGE.toString());
+		menu.makeMenu();
 	}
 
 	public void prepareChanges() {
