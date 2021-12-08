@@ -77,5 +77,18 @@ public class VendingMachine {
 
 		return false;
 	}
-	
+
+	public boolean endOrder() {
+
+		for (Product product : menu) {
+
+			if (product.price <= changes && product.quantity > 0) {
+				return false;
+			}
+
+		}
+
+		return true;
+	}
+
 }

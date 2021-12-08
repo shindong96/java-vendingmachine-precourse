@@ -14,7 +14,14 @@ public class Order {
 		String userOrder = user.order();
 
 		if (vendingMachine.receiveOrder(userOrder)) {
-			
+
+			if (vendingMachine.endOrder()) {
+				System.out.println(Constants.PRINT_USER_MONEY.toString() + " : " + vendingMachine.changes);
+				vendingMachine.printChanges();
+			}
+
 		}
+
 	}
+	
 }
