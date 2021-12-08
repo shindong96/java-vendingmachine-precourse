@@ -42,5 +42,9 @@ public enum Coin {
 		return numberList;
 	}
 
+	public int getAmount() {
+		return this.amount;
+	}
+
 	// 추가 기능 구현
 }

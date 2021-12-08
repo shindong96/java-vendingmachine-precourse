@@ -19,5 +19,16 @@ public class VendingMachine {
 			changes = coin.prepareChanges(changes, numberOfCoins);
 		}
 
+		printNumberOfCoins();
 	}
+
+	public void printNumberOfCoins() {
+		System.out.println(Constants.PREPARED_NUMBER_OF_COINS_MESSAGE.toString());
+
+		for (Coin coin : Coin.values()) {
+			System.out.println(coin.getAmount() + " - " + numberOfCoins.get(coin.ordinal()) + "개");
+		}
+
+	}
+
 }
