@@ -73,7 +73,7 @@ public class VendingMachine {
 			String productStr = productList[i].substring(1, productList[i].length() - 1);
 			String[] productInfo = productStr.split(",", -1);
 
-			if (exception.checkMenuException(productInfo)) {
+			if (!exception.checkMenuException(productInfo)) {
 				return false;
 			}
 

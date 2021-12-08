@@ -10,13 +10,13 @@ public class Order {
 	}
 
 	public boolean chooseProduct() {
-		System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.changes);
+		System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney);
 		String userOrder = user.order();
 
 		if (vendingMachine.receiveOrder(userOrder)) {
 
 			if (vendingMachine.endOrder()) {
-				System.out.println(Constants.PRINT_USER_MONEY.toString() + " : " + vendingMachine.changes);
+				System.out.println(Constants.PRINT_USER_MONEY.toString() + vendingMachine.remainMoney);
 				vendingMachine.printResult();
 				return true;
 			}

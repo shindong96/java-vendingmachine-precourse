@@ -1,9 +1,10 @@
 package vendingmachine;
 
 import java.util.HashSet;
-import java.util.Set;
 
 public class Exception {
+	public HashSet<String> nameSet = new HashSet<String>();
+
 	public boolean checkNumberException(String numberStr) {
 		try {
 			int num = Integer.parseInt(numberStr);
@@ -48,7 +49,7 @@ public class Exception {
 	}
 
 	public boolean checkMenuException(String[] productInfo) {
-		Set<String> nameSet = new HashSet<String>();
+		nameSet.clear();
 
 		if (!checkArraySize(productInfo)) {
 			return false;
@@ -106,7 +107,7 @@ public class Exception {
 		}
 	}
 
-	public boolean checkNameReduplication(String name, Set<String> nameSet) {
+	public boolean checkNameReduplication(String name, HashSet<String> nameSet) {
 		try {
 
 			if (nameSet.contains(name)) {
