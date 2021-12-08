@@ -101,6 +101,14 @@ public class VendingMachine {
 		remainMoney = money;
 	}
 
+	public boolean comparePriceAndRemainMoney(String order) {
+		return menu.get(menuName.get(order)).price > remainMoney;
+	}
+
+	public boolean findQuantityOfOrder(String order) {
+		return menu.get(menuName.get(order)).quantity != 0;
+	}
+
 	public void receiveOrder(String userOrder) {
 		menu.get(menuName.get(userOrder)).quantity -= 1;
 		remainMoney -= menu.get(menuName.get(userOrder)).price;

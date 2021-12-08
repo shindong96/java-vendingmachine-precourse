@@ -180,7 +180,7 @@ public class Exception {
 	public boolean isThereAnyRemain(String order, VendingMachine vendingMachine) {
 		try {
 
-			if (vendingMachine.menu.get(vendingMachine.menuName.get(order)).quantity == 0) {
+			if (!vendingMachine.findQuantityOfOrder(order)) {
 				throw new IllegalArgumentException();
 			}
 
@@ -194,7 +194,7 @@ public class Exception {
 	public boolean checkCanBuyThisProductWithRemainMoney(String order, VendingMachine vendingMachine) {
 		try {
 
-			if (vendingMachine.menu.get(vendingMachine.menuName.get(order)).price > vendingMachine.remainMoney) {
+			if (vendingMachine.comparePriceAndRemainMoney(order)) {
 				throw new IllegalArgumentException();
 			}
 
