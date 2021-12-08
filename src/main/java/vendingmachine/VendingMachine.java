@@ -29,18 +29,9 @@ public class VendingMachine {
 		System.out.println(Constants.PREPARING_COIN_MESSAGE.toString());
 		prepareChanges();
 		printNumberOfCoins();
+
 		System.out.println(Constants.INPUT_MENU_MESSAGE.toString());
-
-		while (true) {
-
-			if (makeMenu()) {
-				break;
-			}
-
-			menu.clear();
-
-		}
-
+		insertMenu();
 	}
 
 	public void prepareChanges() {
@@ -61,8 +52,21 @@ public class VendingMachine {
 
 	}
 
-	boolean makeMenu() {
-		String productListStr = Console.readLine();
+	public void insertMenu() {
+
+		while (true) {
+			String productListStr = Console.readLine();
+
+			if (makeMenu(productListStr)) {
+				break;
+			}
+
+			menu.clear();
+		}
+
+	}
+
+	public boolean makeMenu(String productListStr) {
 		String[] productList = productListStr.split(";", -1);
 
 		for (int i = 0; i < productList.length; i++) {
@@ -70,13 +74,14 @@ public class VendingMachine {
 			String[] productInfo = productStr.split(",", -1);
 
 			if (exception.checkMenuException(productInfo)) {
-
+				return false;
 			}
 
 			menuName.put(productInfo[0], i);
 			menu.add(new Product(productInfo[0], Integer.parseInt(productInfo[1]), Integer.parseInt(productInfo[2])));
 		}
 
+		return true;
 	}
 
 	public void printNumberOfCoins() {

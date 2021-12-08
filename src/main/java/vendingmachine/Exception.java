@@ -54,10 +54,11 @@ public class Exception {
 			return false;
 		}
 
-		if (!checkSpaceInProductName(productInfo[0])) {
+		if (!checkSpaceInProductName(productInfo[0]) || !checkTabInProductName(productInfo[0])) {
 			return false;
 		}
 
+		return true;
 	}
 
 	public boolean checkArraySize(String[] productInfo) {
