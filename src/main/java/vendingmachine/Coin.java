@@ -18,6 +18,12 @@ public enum Coin {
 	}
 
 	public int prepareChanges(int money, List<Integer> numberOfCoins) {
+
+		if (amount == 10) {
+			numberOfCoins.add(money / amount);
+			return 0;
+		}
+
 		int limit = money / amount;
 		List<Integer> randomNumberList = makeRandomNumberList(limit);
 		int numberOfCoin = Randoms.pickNumberInList(randomNumberList);
