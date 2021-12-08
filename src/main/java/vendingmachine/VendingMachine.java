@@ -101,20 +101,9 @@ public class VendingMachine {
 		remainMoney = money;
 	}
 
-	public boolean receiveOrder(String userOrder) {
-
-		if (menuName.get(userOrder) != null) {
-
-			if (menu.get(menuName.get(userOrder)).quantity > 0 && remainMoney >= menu.get(
-				menuName.get(userOrder)).price) {
-				menu.get(menuName.get(userOrder)).quantity -= 1;
-				remainMoney -= menu.get(menuName.get(userOrder)).price;
-				return true;
-			}
-
-		}
-
-		return false;
+	public void receiveOrder(String userOrder) {
+		menu.get(menuName.get(userOrder)).quantity -= 1;
+		remainMoney -= menu.get(menuName.get(userOrder)).price;
 	}
 
 	public boolean endOrder() {
