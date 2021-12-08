@@ -63,4 +63,19 @@ public class VendingMachine {
 		changes = money;
 	}
 
+	public boolean receiveOrder(String userOrder) {
+
+		if (menuName.get(userOrder) != null) {
+
+			if (menu.get(menuName.get(userOrder)).quantity > 0 && changes >= menu.get(menuName.get(userOrder)).price) {
+				menu.get(menuName.get(userOrder)).quantity -= 1;
+				changes -= menu.get(menuName.get(userOrder)).price;
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+	
 }

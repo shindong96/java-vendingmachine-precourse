@@ -12,6 +12,9 @@ public class Order {
 	public void chooseProduct() {
 		System.out.println(Constants.PRINT_USER_MONEY.toString() + " : " + vendingMachine.changes);
 		String userOrder = user.order();
-		vendingMachine.receiveOrder(userOrder);
+
+		if (vendingMachine.receiveOrder(userOrder)) {
+			
+		}
 	}
 }
