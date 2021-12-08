@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class Exception {
 	public HashSet<String> nameSet = new HashSet<String>();
 
-	public boolean checkNumberException(String numberStr) {
+	public boolean checkMoneyException(String numberStr) {
 		try {
 			int num = Integer.parseInt(numberStr);
 
@@ -56,7 +56,7 @@ public class Exception {
 			return false;
 		}
 
-		if (!checkNumberException(productInfo[1]) || !checkNumberException(productInfo[2])) {
+		if (!checkMoneyException(productInfo[1]) || !checkNumberException(productInfo[2])) {
 			return false;
 		}
 

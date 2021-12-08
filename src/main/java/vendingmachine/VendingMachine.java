@@ -39,7 +39,7 @@ public class VendingMachine {
 		while (true) {
 			String changesCoinStr = Console.readLine();
 
-			if (exception.checkNumberException(changesCoinStr)) {
+			if (exception.checkMoneyException(changesCoinStr)) {
 				changes = Integer.parseInt(changesCoinStr);
 				break;
 			}

@@ -9,7 +9,7 @@ public class User {
 		System.out.println(Constants.INSERT_MONEY_MESSAGE.toString());
 		while (true) {
 			String moneyStr = Console.readLine();
-			if (exception.checkNumberException(moneyStr)) {
+			if (exception.checkMoneyException(moneyStr)) {
 				vendingMachine.insertMoney(Integer.parseInt(moneyStr));
 				return;
 			}
