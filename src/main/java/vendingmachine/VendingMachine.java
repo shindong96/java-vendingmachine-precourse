@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class VendingMachine {
 	public List<Product> menu;
@@ -50,10 +51,37 @@ public class VendingMachine {
 
 		}
 
+		initNumberOfCoins();
+	}
+
+	public void initNumberOfCoins() {
+		Map<Integer, Integer> coinMap = makeRandomCoins();
+
 		for (Coin coin : Coin.values()) {
-			changes = coin.prepareChanges(changes, numberOfCoins);
+			numberOfCoins.add(coinMap.get(coin.getAmount()));
 		}
 
+	}
+
+	public Map<Integer, Integer> makeRandomCoins() {
+		List<Integer> randomCoinList = new ArrayList<Integer>();
+		Map<Integer, Integer> coinMap = new HashMap<Integer, Integer>();
+		int total = 0;
+
+		for (Coin coin : Coin.values()) {
+			randomCoinList.add(coin.getAmount());
+			coinMap.put(coin.getAmount(), 0);
+		}
+
+		while (total < changes) {
+			int randomCoin = Randoms.pickNumberInList(randomCoinList);
+			if (total + randomCoin <= changes) {
+				total += randomCoin;
+				coinMap.put(randomCoin, coinMap.get(randomCoin) + 1);
+			}
+		}
+
+		return coinMap;
 	}
 
 	public void insertMenu() {
@@ -92,7 +120,7 @@ public class VendingMachine {
 		System.out.println(Constants.PREPARED_NUMBER_OF_COINS_MESSAGE.toString());
 
 		for (Coin coin : Coin.values()) {
-			System.out.println(coin.getAmount() + " - " + numberOfCoins.get(coin.ordinal()) + "개");
+			System.out.println(coin.getAmount() + "원 - " + numberOfCoins.get(coin.ordinal()) + "개");
 		}
 
 	}
@@ -160,7 +188,7 @@ public class VendingMachine {
 			return;
 		}
 
-		System.out.println(amount + " - " + quantity + "개");
+		System.out.println(amount + "원 - " + quantity + "개");
 	}
 
 }
