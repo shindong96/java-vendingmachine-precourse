@@ -28,4 +28,9 @@ public final class Constants {
 	public static final String ERROR_NO_QUANTITY_MESSAGE = "[ERROR] 주문하신 상품은 품절입니다.";
 	public static final String ERROR_CANNOT_BUY_WITH_REMAIN_MESSAGE = "[ERROR] 잔액이 모자랍니다.";
 
+	public static final String SPACE = " ";
+	public static final String TAB = "\t";
+	public static final int PRODUCT_INFO_SIZE = 3;
+	public static final int PRICE_LOWER_BOUND = 100;
+
 }

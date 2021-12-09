@@ -67,7 +67,7 @@ public class Exception {
 	public boolean checkArraySize(String[] productInfo) {
 		try {
 
-			if (productInfo.length != 3) {
+			if (productInfo.length != Constants.PRODUCT_INFO_SIZE) {
 				throw new IllegalArgumentException();
 			}
 
@@ -79,7 +79,7 @@ public class Exception {
 	}
 
 	public boolean checkSpaceInProductName(String name) {
-		String[] tmp = name.split(" ", -1);
+		String[] tmp = name.split(Constants.SPACE, -1);
 		try {
 
 			if (tmp.length != 1) {
@@ -94,7 +94,7 @@ public class Exception {
 	}
 
 	public boolean checkTabInProductName(String name) {
-		String[] tmp = name.split("\t", -1);
+		String[] tmp = name.split(Constants.TAB, -1);
 		try {
 
 			if (tmp.length != 1) {
@@ -127,7 +127,7 @@ public class Exception {
 		try {
 			int price = Integer.parseInt(priceStr);
 
-			if (price < 100) {
+			if (price < Constants.PRICE_LOWER_BOUND) {
 				throw new IllegalArgumentException();
 			}
 
