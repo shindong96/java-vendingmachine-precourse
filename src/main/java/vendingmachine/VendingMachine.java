@@ -55,7 +55,15 @@ public class VendingMachine {
 	}
 
 	public void initNumberOfCoins() {
-		Map<Integer, Integer> coinMap = makeRandomCoins();
+		List<Integer> coinList = new ArrayList<Integer>();
+		Map<Integer, Integer> coinMap = new HashMap<Integer, Integer>();
+
+		for (Coin coin : Coin.values()) {
+			coinList.add(coin.getAmount());
+			coinMap.put(coin.getAmount(), 0);
+		}
+
+		makeRandomCoins(coinList, coinMap);
 
 		for (Coin coin : Coin.values()) {
 			numberOfCoins.add(coinMap.get(coin.getAmount()));
@@ -63,25 +71,19 @@ public class VendingMachine {
 
 	}
 
-	public Map<Integer, Integer> makeRandomCoins() {
-		List<Integer> randomCoinList = new ArrayList<Integer>();
-		Map<Integer, Integer> coinMap = new HashMap<Integer, Integer>();
+	public void makeRandomCoins(List<Integer> coinList, Map<Integer, Integer> coinMap) {
 		int total = 0;
 
-		for (Coin coin : Coin.values()) {
-			randomCoinList.add(coin.getAmount());
-			coinMap.put(coin.getAmount(), 0);
-		}
-
 		while (total < changes) {
-			int randomCoin = Randoms.pickNumberInList(randomCoinList);
+			int randomCoin = Randoms.pickNumberInList(coinList);
+
 			if (total + randomCoin <= changes) {
 				total += randomCoin;
 				coinMap.put(randomCoin, coinMap.get(randomCoin) + 1);
 			}
-		}
 
-		return coinMap;
+		}
+		
 	}
 
 	public void insertMenu() {
